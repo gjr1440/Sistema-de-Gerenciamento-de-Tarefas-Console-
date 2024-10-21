@@ -1,5 +1,10 @@
 class Tarefa
 {
     // Atributos
-    protected string? titulo;
+    public string? titulo;
+    public string? descricao;
+    public string? dataVencimento;
+
+    // Mandar pra Gerenciador
+    protected List<string> tarefa = new List<string>();
 }

@@ -5,7 +5,7 @@ bool programaFinalizado = false;
 
 string titulo = "";
 string descricao = "";
-string dataVencimento = "";
+string dataVencimento;
 
 while (programaFinalizado == false)
 {
@@ -24,8 +24,6 @@ while (programaFinalizado == false)
     input = Console.ReadLine();
     if (input?.Trim() == "1")
     {
-        Tarefa tarefa = new Tarefa();
-
         Console.Clear();
         Console.WriteLine("ADICIONAR TAREFA");
 
@@ -35,6 +33,10 @@ while (programaFinalizado == false)
         descricao = Adicionar("Descrição");
         dataVencimento = AdicionarData("Data de vencimento").ToString();
 
+        Tarefa tarefa = new Tarefa();
+        tarefa.titulo = titulo;
+        tarefa.descricao = descricao;
+        tarefa.dataVencimento = dataVencimento;
     }
     else if (input?.Trim() == "2")
     {
