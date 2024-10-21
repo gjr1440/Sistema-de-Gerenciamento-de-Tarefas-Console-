@@ -3,8 +3,8 @@
 string? input;
 bool programaFinalizado = false;
 
-string titulo = "";
-string descricao = "";
+string titulo;
+string descricao;
 string dataVencimento;
 
 while (programaFinalizado == false)
@@ -44,10 +44,7 @@ while (programaFinalizado == false)
     }
     else if (input?.Trim() == "3")
     {
-        Console.Clear();
-        Console.WriteLine(titulo);
-        Console.WriteLine(descricao);
-        break;
+        programaFinalizado = true; // Break
     }
     else
     {
