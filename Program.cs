@@ -1,6 +1,12 @@
 ﻿string? input;
 bool programaFinalizado = false;
 
+string titulo = "";
+string descricao = "";
+string dia = "";
+string mes = "";
+string ano = "";
+
 while (programaFinalizado == false)
 {
     Console.Clear();
@@ -18,9 +24,7 @@ while (programaFinalizado == false)
     input = Console.ReadLine();
     if (input?.Trim() == "1")
     {
-        string titulo;
-        string descricao;
-        string dia, mes, ano;
+        Tarefa tarefa = new Tarefa();
 
         Console.Clear();
         Console.WriteLine("ADICIONAR TAREFA");
@@ -28,72 +32,22 @@ while (programaFinalizado == false)
         Console.WriteLine();
 
         titulo = Adicionar("Título");
-        /*while (true) // Título
-        {
-            Console.Write("Título: ");
-            input = Console.ReadLine();
-
-            if (!string.IsNullOrEmpty(input))
-            {
-                Console.WriteLine($"Confirma? Título: {input}");
-                Console.WriteLine("(s/n)");
-                input = Console.ReadLine() ?? "";
-                if (input.Trim().ToLower() == "s")
-                {
-                    break;
-                }
-                else if (input.Trim().ToLower() == "n")
-                {
-                    continue;
-                }
-                else
-                {
-                    Console.WriteLine("Apenas 's' ou 'n'");
-                }
-            }
-            else
-            {
-                continue;
-            }
-        }*/
-
-        /*while (true) // Descrição
-        {
-            Console.Write("Descrição: ");
-            input = Console.ReadLine();
-
-            if (!string.IsNullOrEmpty(input))
-            {
-                Console.WriteLine($"Confirma? Descrição: {input}");
-                Console.WriteLine("(s/n)");
-                input = Console.ReadLine() ?? "";
-                if (input.Trim().ToLower() == "s")
-                {
-                    break;
-                }
-                else if (input.Trim().ToLower() == "n")
-                {
-                    continue;
-                }
-                else
-                {
-                    Console.WriteLine("Apenas 's' ou 'n'");
-                }
-            }
-            else
-            {
-                continue;
-            }
-        }
-
-        while (true) // Data de vencimento
-        {
-
-        }*/
+        descricao = Adicionar("Descrição");
+        ano = Adicionar("Ano");
+        mes = Adicionar("Mês");
+        dia = Adicionar("Dia");
+        
     }
     else if (input?.Trim() == "2")
     {
 
+    }
+    else if (input?.Trim() == "3")
+    {
+        Console.Clear();
+        Console.WriteLine(titulo);
+        Console.WriteLine(descricao);
+        break;
     }
     else
     {
@@ -103,27 +57,36 @@ while (programaFinalizado == false)
 
 string Adicionar(string dado)
 {
+    string? inputDado;
+    string valorDado;
+
     while (true)
     {
         Console.Write($"{dado}: ");
-        input = Console.ReadLine();
+        inputDado = Console.ReadLine();
 
-        if (!string.IsNullOrEmpty(input))
+        if (!string.IsNullOrEmpty(inputDado))
         {
-            Console.WriteLine($"Confirma? {dado}: {input}");
-            Console.WriteLine("(s/n)");
-            input = Console.ReadLine() ?? "";
-            if (input.Trim().ToLower() == "s")
+            while (true)
             {
-                return dado;
-            }
-            else if (input.Trim().ToLower() == "n")
-            {
-                continue;
-            }
-            else
-            {
-                Console.WriteLine("Apenas 's' ou 'n'");
+                Console.WriteLine($"Confirma? {dado}: {inputDado}");
+                Console.WriteLine("(s/n)");
+                input = Console.ReadLine() ?? ""; // input diferente
+                if (input.Trim().ToLower() == "s")
+                {
+                    valorDado = inputDado;
+                    return valorDado;
+                }
+                else if (input.Trim().ToLower() == "n")
+                {
+                    Console.WriteLine();
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Apenas 's' ou 'n'");
+                    Console.WriteLine();
+                }
             }
         }
         else
