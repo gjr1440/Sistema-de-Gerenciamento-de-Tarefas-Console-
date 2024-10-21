@@ -17,7 +17,7 @@ while (programaFinalizado == false)
     input = Console.ReadLine();
     if (input?.Trim() == "1")
     {
-        Console.Clear();
+        /* Console.Clear();
         Console.WriteLine("ADICIONAR TAREFA");
 
         Console.WriteLine();
@@ -83,7 +83,7 @@ while (programaFinalizado == false)
         while (true) // Data de vencimento
         {
 
-        }
+        }*/
     }
     else if (input?.Trim() == "2")
     {
