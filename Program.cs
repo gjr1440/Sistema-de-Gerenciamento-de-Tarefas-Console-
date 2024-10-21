@@ -1,11 +1,11 @@
-﻿string? input;
+﻿using System.Globalization;
+
+string? input;
 bool programaFinalizado = false;
 
 string titulo = "";
 string descricao = "";
-string dia = "";
-string mes = "";
-string ano = "";
+string dataVencimento = "";
 
 while (programaFinalizado == false)
 {
@@ -33,10 +33,8 @@ while (programaFinalizado == false)
 
         titulo = Adicionar("Título");
         descricao = Adicionar("Descrição");
-        ano = Adicionar("Ano");
-        mes = Adicionar("Mês");
-        dia = Adicionar("Dia");
-        
+        dataVencimento = AdicionarData("Data de vencimento").ToString();
+
     }
     else if (input?.Trim() == "2")
     {
@@ -84,7 +82,7 @@ string Adicionar(string dado)
                 }
                 else
                 {
-                    Console.WriteLine("Apenas 's' ou 'n'");
+                    Console.WriteLine("<ERRO> Apenas 's' ou 'n'");
                     Console.WriteLine();
                 }
             }
@@ -92,6 +90,53 @@ string Adicionar(string dado)
         else
         {
             continue;
+        }
+    }
+}
+
+DateTime AdicionarData(string data)
+{
+    DateTime inputData;
+    DateTime valorData;
+
+    while (true)
+    {
+        try
+        {
+            Console.Write($"{data} (e.g. 10/02/2013): ");
+            inputData = DateTime.ParseExact(Console.ReadLine() ?? "", "dd/MM/yyyy", CultureInfo.InvariantCulture);
+
+            if (inputData > DateTime.Now) // Verifica se a data é futura
+            {
+                Console.WriteLine($"Confirma? {data}: {inputData}");
+                Console.WriteLine("(s/n)");
+                string input = Console.ReadLine() ?? "";
+
+                if (input.Trim().ToLower() == "s")
+                {
+                    valorData = inputData;
+                    return valorData;
+                }
+                else if (input.Trim().ToLower() == "n")
+                {
+                    Console.WriteLine();
+                }
+                else
+                {
+                    Console.WriteLine("<ERRO> Apenas 's' ou 'n'");
+                    Console.WriteLine();
+                }
+            }
+            else
+            {
+                Console.WriteLine("<ERRO> A data deve ser futura");
+                Console.WriteLine();
+            }
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine("<ERRO> Digite uma data válida no formato 'dd/MM/yyyy'");
+            Console.WriteLine();
         }
     }
 }
