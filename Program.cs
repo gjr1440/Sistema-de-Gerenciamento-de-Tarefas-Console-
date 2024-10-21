@@ -16,7 +16,14 @@ while (programaFinalizado == false)
     input = Console.ReadLine();
     if (input?.Trim() == "1")
     {
+        while (true)
+        {
+            Console.WriteLine("ADICIONAR TAREFA");
 
+            Console.WriteLine();
+
+
+        }
     }
     else if (input?.Trim() == "2")
     {
