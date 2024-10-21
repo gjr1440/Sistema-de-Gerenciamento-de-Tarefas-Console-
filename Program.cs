@@ -10,6 +10,7 @@ while (programaFinalizado == false)
 
     Console.WriteLine("1 - Adicionar tarefa");
     Console.WriteLine("2 - Listar tarefas");
+    Console.WriteLine("3 - Sair");
 
     Console.WriteLine();
 
@@ -17,12 +18,17 @@ while (programaFinalizado == false)
     input = Console.ReadLine();
     if (input?.Trim() == "1")
     {
-        /* Console.Clear();
+        string titulo;
+        string descricao;
+        string dia, mes, ano;
+
+        Console.Clear();
         Console.WriteLine("ADICIONAR TAREFA");
 
         Console.WriteLine();
 
-        while (true) // Título
+        titulo = Adicionar("Título");
+        /*while (true) // Título
         {
             Console.Write("Título: ");
             input = Console.ReadLine();
@@ -49,9 +55,9 @@ while (programaFinalizado == false)
             {
                 continue;
             }
-        }
+        }*/
 
-        while (true) // Descrição
+        /*while (true) // Descrição
         {
             Console.Write("Descrição: ");
             input = Console.ReadLine();
@@ -92,5 +98,37 @@ while (programaFinalizado == false)
     else
     {
         continue;
+    }
+}
+
+string Adicionar(string dado)
+{
+    while (true)
+    {
+        Console.Write($"{dado}: ");
+        input = Console.ReadLine();
+
+        if (!string.IsNullOrEmpty(input))
+        {
+            Console.WriteLine($"Confirma? {dado}: {input}");
+            Console.WriteLine("(s/n)");
+            input = Console.ReadLine() ?? "";
+            if (input.Trim().ToLower() == "s")
+            {
+                return dado;
+            }
+            else if (input.Trim().ToLower() == "n")
+            {
+                continue;
+            }
+            else
+            {
+                Console.WriteLine("Apenas 's' ou 'n'");
+            }
+        }
+        else
+        {
+            continue;
+        }
     }
 }
