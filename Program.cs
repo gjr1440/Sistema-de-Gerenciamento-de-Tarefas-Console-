@@ -3,6 +3,7 @@ bool programaFinalizado = false;
 
 while (programaFinalizado == false)
 {
+    Console.Clear();
     Console.WriteLine("GERENCIADOR DE TAREFAS");
 
     Console.WriteLine();
@@ -16,12 +17,71 @@ while (programaFinalizado == false)
     input = Console.ReadLine();
     if (input?.Trim() == "1")
     {
-        while (true)
+        Console.Clear();
+        Console.WriteLine("ADICIONAR TAREFA");
+
+        Console.WriteLine();
+
+        while (true) // Título
         {
-            Console.WriteLine("ADICIONAR TAREFA");
+            Console.Write("Título: ");
+            input = Console.ReadLine();
 
-            Console.WriteLine();
+            if (!string.IsNullOrEmpty(input))
+            {
+                Console.WriteLine($"Confirma? Título: {input}");
+                Console.WriteLine("(s/n)");
+                input = Console.ReadLine() ?? "";
+                if (input.Trim().ToLower() == "s")
+                {
+                    break;
+                }
+                else if (input.Trim().ToLower() == "n")
+                {
+                    continue;
+                }
+                else
+                {
+                    Console.WriteLine("Apenas 's' ou 'n'");
+                }
+            }
+            else
+            {
+                continue;
+            }
+        }
 
+        while (true) // Descrição
+        {
+            Console.Write("Descrição: ");
+            input = Console.ReadLine();
+
+            if (!string.IsNullOrEmpty(input))
+            {
+                Console.WriteLine($"Confirma? Descrição: {input}");
+                Console.WriteLine("(s/n)");
+                input = Console.ReadLine() ?? "";
+                if (input.Trim().ToLower() == "s")
+                {
+                    break;
+                }
+                else if (input.Trim().ToLower() == "n")
+                {
+                    continue;
+                }
+                else
+                {
+                    Console.WriteLine("Apenas 's' ou 'n'");
+                }
+            }
+            else
+            {
+                continue;
+            }
+        }
+
+        while (true) // Data de vencimento
+        {
 
         }
     }

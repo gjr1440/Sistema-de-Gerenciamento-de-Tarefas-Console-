@@ -1,0 +1,15 @@
+C:\C#\ProjetosPOO\SistemaGerenciamentoTarefas\bin\Debug\net8.0\SistemaGerenciamentoTarefas.exe
+C:\C#\ProjetosPOO\SistemaGerenciamentoTarefas\bin\Debug\net8.0\SistemaGerenciamentoTarefas.deps.json
+C:\C#\ProjetosPOO\SistemaGerenciamentoTarefas\bin\Debug\net8.0\SistemaGerenciamentoTarefas.runtimeconfig.json
+C:\C#\ProjetosPOO\SistemaGerenciamentoTarefas\bin\Debug\net8.0\SistemaGerenciamentoTarefas.dll
+C:\C#\ProjetosPOO\SistemaGerenciamentoTarefas\bin\Debug\net8.0\SistemaGerenciamentoTarefas.pdb
+C:\C#\ProjetosPOO\SistemaGerenciamentoTarefas\obj\Debug\net8.0\SistemaGerenciamentoTarefas.GeneratedMSBuildEditorConfig.editorconfig
+C:\C#\ProjetosPOO\SistemaGerenciamentoTarefas\obj\Debug\net8.0\SistemaGerenciamentoTarefas.AssemblyInfoInputs.cache
+C:\C#\ProjetosPOO\SistemaGerenciamentoTarefas\obj\Debug\net8.0\SistemaGerenciamentoTarefas.AssemblyInfo.cs
+C:\C#\ProjetosPOO\SistemaGerenciamentoTarefas\obj\Debug\net8.0\SistemaGerenciamentoTarefas.csproj.CoreCompileInputs.cache
+C:\C#\ProjetosPOO\SistemaGerenciamentoTarefas\obj\Debug\net8.0\SistemaGerenciamentoTarefas.sourcelink.json
+C:\C#\ProjetosPOO\SistemaGerenciamentoTarefas\obj\Debug\net8.0\SistemaGerenciamentoTarefas.dll
+C:\C#\ProjetosPOO\SistemaGerenciamentoTarefas\obj\Debug\net8.0\refint\SistemaGerenciamentoTarefas.dll
+C:\C#\ProjetosPOO\SistemaGerenciamentoTarefas\obj\Debug\net8.0\SistemaGerenciamentoTarefas.pdb
+C:\C#\ProjetosPOO\SistemaGerenciamentoTarefas\obj\Debug\net8.0\SistemaGerenciamentoTarefas.genruntimeconfig.cache
+C:\C#\ProjetosPOO\SistemaGerenciamentoTarefas\obj\Debug\net8.0\ref\SistemaGerenciamentoTarefas.dll
