@@ -3,13 +3,15 @@
 string? input;
 bool programaFinalizado = false;
 
-string titulo = "";
-string descricao = "";
-string dataVencimento = "";
+Gerenciador gr = new Gerenciador();
+
+string titulo;
+string descricao;
+string dataVencimento;
 
 while (programaFinalizado == false)
 {
-    Console.Clear();
+    //Console.Clear();
     Console.WriteLine("GERENCIADOR DE TAREFAS");
 
     Console.WriteLine();
@@ -24,7 +26,7 @@ while (programaFinalizado == false)
     input = Console.ReadLine();
     if (input?.Trim() == "1")
     {
-        Console.Clear();
+        //Console.Clear();
         Console.WriteLine("ADICIONAR TAREFA");
 
         Console.WriteLine();
@@ -41,10 +43,11 @@ while (programaFinalizado == false)
     }
     else if (input?.Trim() == "3")
     {
-        Console.WriteLine(titulo);
-        Console.WriteLine(descricao);
-        Console.WriteLine(dataVencimento);
-        programaFinalizado = true; // Break
+        foreach (string item in gr.tarefas)
+        {
+            Console.WriteLine(item);
+        }
+        // programaFinalizado = true; // Break
     }
     else
     {
