@@ -1,4 +1,7 @@
-class Gerenciador : Tarefa
+class Gerenciador
 {
-    // Armazenar blocos de tarefas
+    protected void PegarList(List<string> lista)
+    {
+
+    }
 }

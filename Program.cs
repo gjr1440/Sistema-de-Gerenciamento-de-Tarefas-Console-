@@ -33,7 +33,7 @@ while (programaFinalizado == false)
         descricao = Adicionar("Descrição");
         dataVencimento = AdicionarData("Data de vencimento").ToString();
 
-        Tarefa novaTarefa = new Tarefa();
+        Tarefa criada = new Tarefa(titulo, descricao, dataVencimento);
     }
     else if (input?.Trim() == "2")
     {
