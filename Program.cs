@@ -3,9 +3,9 @@
 string? input;
 bool programaFinalizado = false;
 
-string titulo;
-string descricao;
-string dataVencimento;
+string titulo = "";
+string descricao = "";
+string dataVencimento = "";
 
 while (programaFinalizado == false)
 {
@@ -34,9 +34,6 @@ while (programaFinalizado == false)
         dataVencimento = AdicionarData("Data de vencimento").ToString();
 
         Tarefa novaTarefa = new Tarefa();
-        novaTarefa.titulo = titulo;
-        novaTarefa.descricao = descricao;
-        novaTarefa.dataVencimento = dataVencimento;
     }
     else if (input?.Trim() == "2")
     {
@@ -44,6 +41,9 @@ while (programaFinalizado == false)
     }
     else if (input?.Trim() == "3")
     {
+        Console.WriteLine(titulo);
+        Console.WriteLine(descricao);
+        Console.WriteLine(dataVencimento);
         programaFinalizado = true; // Break
     }
     else
