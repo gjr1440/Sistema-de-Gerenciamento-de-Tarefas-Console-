@@ -3,11 +3,11 @@
 string? input;
 bool programaFinalizado = false;
 
-Gerenciador gr = new Gerenciador();
+Gerenciador gerenciador = new Gerenciador();
 
 string titulo;
 string descricao;
-string dataVencimento;
+DateTime dataVencimento;
 
 while (programaFinalizado == false)
 {
@@ -33,21 +33,17 @@ while (programaFinalizado == false)
 
         titulo = Adicionar("Título");
         descricao = Adicionar("Descrição");
-        dataVencimento = AdicionarData("Data de vencimento").ToString();
+        dataVencimento = AdicionarData("Data de vencimento");
 
-        Tarefa criada = new Tarefa(titulo, descricao, dataVencimento);
+        gerenciador.CriarTarefa(titulo, descricao, dataVencimento);
     }
     else if (input?.Trim() == "2")
     {
-
+        gerenciador.ListarTarefas();
     }
     else if (input?.Trim() == "3")
     {
-        foreach (string item in gr.tarefas)
-        {
-            Console.WriteLine(item);
-        }
-        // programaFinalizado = true; // Break
+        programaFinalizado = true; // Break
     }
     else
     {
@@ -110,7 +106,7 @@ DateTime AdicionarData(string data)
 
             if (inputData > DateTime.Now) // Verifica se a data é futura
             {
-                Console.WriteLine($"Confirma? {data}: {inputData}");
+                Console.WriteLine($"Confirma? {data}: {inputData:dd/MM/yyyy}");
                 Console.WriteLine("(s/n)");
                 string input = Console.ReadLine() ?? "";
 

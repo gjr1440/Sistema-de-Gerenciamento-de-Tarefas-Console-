@@ -1,15 +1,36 @@
 class Gerenciador
 {
-    public List<string> tarefas = new List<string>();
+    public List<List<string>> tarefas = new List<List<string>>();
 
-    protected void PegarList(List<string> lista)
+    public void CriarTarefa(string titulo, string descricao, DateTime dataVencimento)
     {
-        AdicionarTarefa(lista);
+        List<string> novaTarefa = new List<string>
+        {
+            $"Título: {titulo}",
+            $"Descrição: {descricao}",
+            $"Data de Vencimento: {dataVencimento:dd/MM/yyyy}"
+        };
+
+        tarefas.Add(novaTarefa);
+        Console.WriteLine("Tarefa adicionada com sucesso!");
     }
 
-    private void AdicionarTarefa(List<string> lista)
+    public void ListarTarefas()
     {
-        tarefas.AddRange(lista);
-        Console.WriteLine("Pegou");
+        if (tarefas.Count == 0)
+        {
+            Console.WriteLine("Nenhuma tarefa cadastrada.");
+            return;
+        }
+
+        for (int i = 0; i < tarefas.Count; i++)
+        {
+            Console.WriteLine($"TAREFA {i + 1}");
+            foreach (var detalhe in tarefas[i])
+            {
+                Console.WriteLine(detalhe);
+            }
+            Console.WriteLine(); // Para separar as tarefas
+        }
     }
 }
