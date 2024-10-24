@@ -63,13 +63,13 @@ while (programaFinalizado == false)
             }
             else
             {
+                Console.WriteLine("1 - Selecionar tarefa");
+                Console.WriteLine("2 - Voltar ao menu principal");
+
+                Console.WriteLine();
+
                 while (true)
                 {
-                    Console.WriteLine("1 - Selecionar tarefa");
-                    Console.WriteLine("2 - Voltar ao menu principal");
-
-                    Console.WriteLine();
-
                     Console.Write("> ");
                     input = Console.ReadLine();
                     if (!string.IsNullOrEmpty(input))
@@ -83,7 +83,7 @@ while (programaFinalizado == false)
                             {
                                 Console.Write("> ");
                                 input = Console.ReadLine();
-                                if (!string.IsNullOrEmpty(input))
+                                if (!string.IsNullOrEmpty(input) && int.TryParse(input, out _))
                                 {
                                     if (Convert.ToInt32(input) >= 1 && Convert.ToInt32(input) <= gerenciador.tarefas.Count)
                                     {
@@ -94,21 +94,20 @@ while (programaFinalizado == false)
                                                 foreach (var detalhe in gerenciador.tarefas[i])
                                                 {
                                                     Console.WriteLine(detalhe);
+                                                    // TODO: Limpar console e pedir pra alterar coisas na tarefa ou voltar pra menu
                                                 }
                                             }
                                         }
                                     }
-                                    else if (Convert.ToInt32(input) < 1)
+                                    else
                                     {
-                                        Console.WriteLine();
-                                        Console.WriteLine("<ERRO> Digite um número válido");
-                                        Console.WriteLine();
-
+                                        Console.WriteLine("<ERRO> Tarefa inexistente");
                                         continue;
                                     }
                                 }
                                 else
                                 {
+                                    Console.WriteLine("<ERRO> Apenas números");
                                     continue;
                                 }
                             }
