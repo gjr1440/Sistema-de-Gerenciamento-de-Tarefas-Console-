@@ -15,7 +15,7 @@ DateTime dataVencimento;
 
 while (programaFinalizado == false)
 {
-    Console.Clear();
+    //Console.Clear();
     Console.WriteLine("GERENCIADOR DE TAREFAS");
 
     Console.WriteLine();
@@ -30,7 +30,7 @@ while (programaFinalizado == false)
     input = Console.ReadLine();
     if (input?.Trim() == "1")
     {
-        Console.Clear();
+        //Console.Clear();
         Console.WriteLine("ADICIONAR TAREFA");
 
         Console.WriteLine();
@@ -43,7 +43,40 @@ while (programaFinalizado == false)
     }
     else if (input?.Trim() == "2")
     {
-        gerenciador.ListarTarefas();
+        while (true)
+        {
+            //Console.Clear();
+            gerenciador.ListarTarefas();
+
+            Console.WriteLine("1 - Selecionar tarefa");
+            Console.WriteLine("2 - Voltar");
+
+            Console.WriteLine();
+
+            Console.Write("> ");
+            input = Console.ReadLine();
+            if (!string.IsNullOrEmpty(input))
+            {
+                if (input.Trim() == "1")
+                {
+
+                }
+                else if (input.Trim() == "2")
+                {
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("<ERRO> Digite '1' ou '2'");
+                    Console.WriteLine();
+                }
+            }
+            else
+            {
+                continue;
+            }
+        }
     }
     else if (input?.Trim() == "3")
     {
@@ -71,7 +104,7 @@ string Adicionar(string dado)
             {
                 Console.WriteLine($"Confirma? {dado}: {inputDado}");
                 Console.WriteLine("(s/n)");
-                input = Console.ReadLine() ?? ""; // different input
+                input = Console.ReadLine() ?? ""; // Different input
                 if (input.Trim().ToLower() == "s")
                 {
                     valorDado = inputDado;

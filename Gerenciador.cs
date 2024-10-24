@@ -25,7 +25,7 @@ class Gerenciador
 
         for (int i = 0; i < tarefas.Count; i++)
         {
-            Console.WriteLine($"TAREFA {i + 1}");
+            Console.WriteLine($"TAREFA ({i + 1})");
             foreach (var detalhe in tarefas[i])
             {
                 Console.WriteLine(detalhe);
