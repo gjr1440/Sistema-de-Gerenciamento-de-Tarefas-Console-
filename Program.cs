@@ -13,9 +13,11 @@ string titulo;
 string descricao;
 DateTime dataVencimento;
 
+bool sairListar = true;
+
 while (programaFinalizado == false)
 {
-    //Console.Clear();
+    Console.Clear();
     Console.WriteLine("GERENCIADOR DE TAREFAS");
 
     Console.WriteLine();
@@ -30,7 +32,7 @@ while (programaFinalizado == false)
     input = Console.ReadLine();
     if (input?.Trim() == "1")
     {
-        //Console.Clear();
+        Console.Clear();
         Console.WriteLine("ADICIONAR TAREFA");
 
         Console.WriteLine();
@@ -43,38 +45,91 @@ while (programaFinalizado == false)
     }
     else if (input?.Trim() == "2")
     {
-        while (true)
+        sairListar = false;
+        while (sairListar == false)
         {
-            //Console.Clear();
+            Console.Clear();
             gerenciador.ListarTarefas();
 
-            Console.WriteLine("1 - Selecionar tarefa");
-            Console.WriteLine("2 - Voltar");
-
-            Console.WriteLine();
-
-            Console.Write("> ");
-            input = Console.ReadLine();
-            if (!string.IsNullOrEmpty(input))
+            if (gerenciador.tarefas.Count == 0)
             {
-                if (input.Trim() == "1")
-                {
-
-                }
-                else if (input.Trim() == "2")
+                Console.WriteLine();
+                Console.WriteLine("--Pressione 'Enter' para voltar--");
+                input = Console.ReadLine();
+                if (string.IsNullOrEmpty(input) || !string.IsNullOrEmpty(input))
                 {
                     break;
-                }
-                else
-                {
-                    Console.WriteLine();
-                    Console.WriteLine("<ERRO> Digite '1' ou '2'");
-                    Console.WriteLine();
                 }
             }
             else
             {
-                continue;
+                while (true)
+                {
+                    Console.WriteLine("1 - Selecionar tarefa");
+                    Console.WriteLine("2 - Voltar ao menu principal");
+
+                    Console.WriteLine();
+
+                    Console.Write("> ");
+                    input = Console.ReadLine();
+                    if (!string.IsNullOrEmpty(input))
+                    {
+                        if (input.Trim() == "1")
+                        {
+                            Console.WriteLine();
+                            Console.WriteLine("Para selecionar alguma tarefa, digite seu número");
+
+                            while (true)
+                            {
+                                Console.Write("> ");
+                                input = Console.ReadLine();
+                                if (!string.IsNullOrEmpty(input))
+                                {
+                                    if (Convert.ToInt32(input) >= 1 && Convert.ToInt32(input) <= gerenciador.tarefas.Count)
+                                    {
+                                        for (int i = 0; i < gerenciador.tarefas.Count; i++)
+                                        {
+                                            if (Convert.ToInt32(input) == i + 1) // If the input value is equal to List index + 1 (like the Gerenciador.cs logic)
+                                            {
+                                                foreach (var detalhe in gerenciador.tarefas[i])
+                                                {
+                                                    Console.WriteLine(detalhe);
+                                                }
+                                            }
+                                        }
+                                    }
+                                    else if (Convert.ToInt32(input) < 1)
+                                    {
+                                        Console.WriteLine();
+                                        Console.WriteLine("<ERRO> Digite um número válido");
+                                        Console.WriteLine();
+
+                                        continue;
+                                    }
+                                }
+                                else
+                                {
+                                    continue;
+                                }
+                            }
+                        }
+                        else if (input.Trim() == "2")
+                        {
+                            sairListar = true;
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine();
+                            Console.WriteLine("<ERRO> Digite '1' ou '2'");
+                            Console.WriteLine();
+                        }
+                    }
+                    else
+                    {
+                        continue;
+                    }
+                }
             }
         }
     }
