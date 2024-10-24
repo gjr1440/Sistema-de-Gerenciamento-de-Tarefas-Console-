@@ -1,5 +1,9 @@
 ﻿using System.Globalization;
 
+// This fixes the accented characters bug
+Console.OutputEncoding = System.Text.Encoding.UTF8;
+Console.InputEncoding = System.Text.Encoding.UTF8;
+
 string? input;
 bool programaFinalizado = false;
 
@@ -11,7 +15,7 @@ DateTime dataVencimento;
 
 while (programaFinalizado == false)
 {
-    //Console.Clear();
+    Console.Clear();
     Console.WriteLine("GERENCIADOR DE TAREFAS");
 
     Console.WriteLine();
@@ -26,7 +30,7 @@ while (programaFinalizado == false)
     input = Console.ReadLine();
     if (input?.Trim() == "1")
     {
-        //Console.Clear();
+        Console.Clear();
         Console.WriteLine("ADICIONAR TAREFA");
 
         Console.WriteLine();
@@ -67,7 +71,7 @@ string Adicionar(string dado)
             {
                 Console.WriteLine($"Confirma? {dado}: {inputDado}");
                 Console.WriteLine("(s/n)");
-                input = Console.ReadLine() ?? ""; // input diferente
+                input = Console.ReadLine() ?? ""; // different input
                 if (input.Trim().ToLower() == "s")
                 {
                     valorDado = inputDado;
